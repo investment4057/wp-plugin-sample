@@ -37,3 +37,25 @@ add_action( 'wp_enqueue_scripts', function() {
 		MY_PLUGIN_VERSION,
 	);
 });
+
+// ダッシュボードにボックスを追加
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+
+// ボックスのタイトル
+function my_custom_dashboard_widgets() {
+	global $wp_meta_boxes;
+	wp_add_dashboard_widget('custom_help_widget', 'バージョン情報', 'dashboard_text');
+}
+
+// ボックスの内容（各バージョンを表示）
+function dashboard_text() {
+  $wp_version = get_bloginfo('version');
+  echo '<p>WordPress: ' . $wp_version . '</p>';
+
+  $php_version = phpversion();
+	echo '<p>PHP: ' . $php_version . '</p>';
+
+  global $wpdb;
+  $mysql_version = $wpdb->db_version();
+  echo '<p>MySQL: ' . $mysql_version . '</p>';
+}
