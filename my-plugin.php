@@ -1,7 +1,7 @@
 <?php
 /*
-  Plugin Name: My Plugin
-  Description: テストプラグイン
+  Plugin Name: Display Version
+  Description: WordPress管理画面のダッシュボードに WP, MySQL, PHP のバージョンを表示します。
   Version: 1.0.0
   Author: sa8a
 */
